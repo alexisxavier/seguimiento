@@ -1,0 +1,5 @@
+// app/index.js
+const express = require('express');
+const app = express();
+app.get('/api/v1', (req, res) => res.send('Hola desde OpenShift'));
+app.listen(3000);
