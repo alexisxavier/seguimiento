@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mi-api
+spec:
+  to:
+    kind: Service
+    name: mi-api
+  port:
+    targetPort: 3000
+  path: /api/v1
