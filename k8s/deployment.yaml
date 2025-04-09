@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: mi-api
-          image: <REEMPLAZAR_CON_URL_IMAGEN>
+          image: mi-api:latest
           ports:
             - containerPort: 3000
