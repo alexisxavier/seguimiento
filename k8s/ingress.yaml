@@ -1,11 +1,18 @@
-apiVersion: route.openshift.io/v1
-kind: Route
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: mi-api
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  to:
-    kind: Service
-    name: mi-api
-  port:
-    targetPort: 3000
-  path: /api/v1
+  rules:
+    - host: mi-api.local
+      http:
+        paths:
+          - path: /api/v1
+            pathType: Prefix
+            backend:
+              service:
+                name: mi-api
+                port:
+                  number: 80
